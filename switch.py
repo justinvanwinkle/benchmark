@@ -73,35 +73,27 @@ def dictdefinedispatch(arg):
     defdispatch[arg](arg)
 
 
-methoddispatch = {
-    S1: attrgetter('s1'),
-    S2: attrgetter('s2'),
-    S3: attrgetter('s3'),
-    S4: attrgetter('s4'),
-    S5: attrgetter('s5'),
-    S6: attrgetter('s6')}
-
-
 class DictAttrGetter(object):
-    def dictattrgettrdispatch(self, arg):
-        methoddispatch[arg](self)(arg)
+    def attrgettrdispatch(self, arg):
+        method = 'case_' + arg
+        getattr(self, method)(arg)
 
-    def s1(self, arg):
+    def case_a(self, arg):
         pass
 
-    def s2(self, arg):
+    def case_b(self, arg):
         pass
 
-    def s3(self, arg):
+    def case_c(self, arg):
         pass
 
-    def s4(self, arg):
+    def case_d(self, arg):
         pass
 
-    def s5(self, arg):
+    def case_e(self, arg):
         pass
 
-    def s6(self, arg):
+    def case_f(self, arg):
         pass
 
 
@@ -119,4 +111,4 @@ if __name__ == '__main__':
     speed_test(dictdefinedispatch)
     speed_test(dictdispatch)
     DAG = DictAttrGetter()
-    speed_test(DAG.dictattrgettrdispatch)
+    speed_test(DAG.attrgettrdispatch)
