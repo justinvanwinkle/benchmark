@@ -100,7 +100,7 @@ class DictAttrGetter(object):
 
 
 def speed_test(f):
-    lst = range(100000)
+    lst = list(range(100000))
     start = time.time()
     for x in lst:
         for x in (S1, S1, S1, S1, S2, S2, S2, S3, S3, S4, S5, S6):
