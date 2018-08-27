@@ -1,12 +1,14 @@
+from __future__ import print_function
 import time
 
 
 def speed_test(f):
+    lst = range(1000000)
     start = time.time()
-    for x in xrange(1000000):
+    for x in lst:
         f(x)
 
-    print f.__name__, time.time() - start
+    print(f.__name__, time.time() - start)
 
 
 def f(arg):

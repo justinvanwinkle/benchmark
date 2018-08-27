@@ -1,13 +1,15 @@
 from __future__ import unicode_literals
+from __future__ import print_function
+
 import time
 from operator import attrgetter
 
-S1 = b'a'
-S2 = b'b'
-S3 = b'c'
-S4 = b'd'
-S5 = b'e'
-S6 = b'f'
+S1 = 'a'
+S2 = 'b'
+S3 = 'c'
+S4 = 'd'
+S5 = 'e'
+S6 = 'f'
 
 
 def s1(arg):
@@ -98,12 +100,13 @@ class DictAttrGetter(object):
 
 
 def speed_test(f):
+    lst = range(100000)
     start = time.time()
-    for x in xrange(100000):
+    for x in lst:
         for x in (S1, S1, S1, S1, S2, S2, S2, S3, S3, S4, S5, S6):
             f(x)
 
-    print f.__name__, time.time() - start
+    print(f.__name__, time.time() - start)
 
 
 if __name__ == '__main__':
